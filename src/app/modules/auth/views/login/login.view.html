@@ -20,7 +20,9 @@
 					</mat-error>
 				</mat-form-field>
 				<div class="form-actions-wrapper">
-					<button mat-raised-button color="primary">Login</button>
+					<button mat-raised-button
+						[disabled]="formGroup.invalid || formGroup.pristine || (disabledSubmit$ | async)"
+						color="primary">Login</button>
 				</div>
 			</form>
 		</mat-card>

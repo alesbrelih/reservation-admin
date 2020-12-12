@@ -1,0 +1,8 @@
+<h1>Overview</h1>
+
+<nav mat-tab-nav-bar>
+	<a mat-tab-link *ngFor="let link of links" [routerLink]="[link.path]" routerLinkActive [active]="rla.isActive"
+		#rla="routerLinkActive"> {{link.title}} </a>
+</nav>
+
+<router-outlet></router-outlet>

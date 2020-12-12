@@ -1,1 +1,12 @@
-<p>layout works!</p>
+<mat-drawer-container autosize>
+	<mat-drawer mode="side" opened>
+		<div class="navigation-wrapper">
+			<a routerLink="/calendar" class="mat-h2">Calendar</a>
+			<a routerLink="/overview" class="mat-h2">Overview</a>
+			<a routerLink="/items" class="mat-h2">Items</a>
+		</div>
+	</mat-drawer>
+	<mat-drawer-content>
+		<router-outlet></router-outlet>
+	</mat-drawer-content>
+</mat-drawer-container>

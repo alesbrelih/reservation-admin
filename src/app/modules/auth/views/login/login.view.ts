@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { FormErrors } from 'src/app/helpers/form-errors';
 
@@ -15,7 +17,7 @@ export interface Login {
 	styleUrls: ['./login.view.scss'],
 })
 export class LoginView implements OnInit {
-
+	disabledSubmit$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 	matcher = FormErrors.getErrorMatcher();
 	formGroup!: FormGroup;
 
@@ -29,8 +31,11 @@ export class LoginView implements OnInit {
 	}
 
 	login(login: Login): void {
+		this.disabledSubmit$.next(true);
 		this.auth.login(login)
-			.subscribe(() => {
+			.pipe(
+				finalize(() => this.disabledSubmit$.next(false))
+			).subscribe(() => {
 				this.router.navigate(['/']);
 			}, err => {
 				//TODO: add real err service/logger
