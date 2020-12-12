@@ -1,0 +1,28 @@
+<div class="login-wrapper">
+	<div class="login-form-wrapper">
+		<mat-card class="example-card">
+			<h1>Login</h1>
+			<form [formGroup]="formGroup" (ngSubmit)="login(formGroup.value)">
+				<mat-form-field class="w-100">
+					<mat-label>Username</mat-label>
+					<input type="text" matInput [errorStateMatcher]="matcher" placeholder="Username"
+						formControlName="username">
+					<mat-error *ngIf="formGroup.get('username')?.hasError('required')">
+						Email is <strong>required</strong>
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field class="w-100">
+					<mat-label>Password</mat-label>
+					<input type="password" matInput [errorStateMatcher]="matcher" placeholder="Password"
+						formControlName="password">
+					<mat-error *ngIf="formGroup.get('password')?.hasError('required')">
+						Password is <strong>required</strong>
+					</mat-error>
+				</mat-form-field>
+				<div class="form-actions-wrapper">
+					<button mat-raised-button color="primary">Login</button>
+				</div>
+			</form>
+		</mat-card>
+	</div>
+</div>

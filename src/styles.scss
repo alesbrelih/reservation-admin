@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+$color-primary: #3f51b5;
+
+html, body { height: 100%; background-color: #f8f8f8; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h1, h2, h3, h4, h5 {
+	font-weight: bold;
+}
+
+
+.w-100 {
+	width: 100%;
+}
+form {
+	> * {
+		&:not(:first-child) {
+			margin-top:5px;
+		}
+
+	}
+	.form-actions-wrapper {
+		margin-top: 20px;
+	}
+}
