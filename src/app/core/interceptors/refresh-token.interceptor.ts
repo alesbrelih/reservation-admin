@@ -24,6 +24,7 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
 		}
 
 		if (!this.jwt.hasToRefresh) {
+			console.log("HAS TO REFRESH");
 			return next.handle(req);
 		}
 

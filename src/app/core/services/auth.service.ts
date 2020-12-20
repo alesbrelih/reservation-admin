@@ -24,8 +24,7 @@ export class AuthService {
 	}
 
 	refresh(refreshToken: string): Observable<AuthTokens> {
-		console.log("AM I BEING TRIGGERED");
-		return this.http.post<AuthTokens>(`/api/auth/refresh`, {refreshToken})
+		return this.http.post<AuthTokens>(`/api/auth/refresh`, {refresh: refreshToken})
 			.pipe(
 				tap(tokes => console.log("BACK", tokes)),
 				tap(tokens => this.jwt.saveTokens(tokens))

@@ -6,6 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class MultiplePipe implements PipeTransform {
 	transform(value: any, ...properties: string[]): string {
 		return Object.keys(value).reduce((prev, curr) => {
+			if (!value[curr]) {
+				return prev;
+			}
 			if (!properties.includes(curr)) {
 				return prev;
 			}

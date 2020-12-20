@@ -1,0 +1,28 @@
+tr.inquiry-details-row {
+	height: 0;
+	.comment-wrapper {
+		overflow: hidden;
+		display: flex;
+		.comment {
+			padding: 20px 0px;
+		}
+	}
+}
+
+.inquiry-row {
+	cursor: pointer;
+	td {
+		border-bottom-width: 0;
+	}
+	&:not(.example-expanded-row):active {
+		background: #efefef;
+	}
+	&:not(.example-expanded-row):hover {
+		background: whitesmoke;
+	}
+}
+table td,th {
+	width: 16.6%;
+}
+
+

@@ -1,28 +1,29 @@
-<form [formGroup]="formGroup">
-	<div fxLayout fxLayoutGap="5%">
-		<mat-form-field>
-			<mat-label>From</mat-label>
-			<input matInput formControlName="from" [matDatepicker]="fromPicker">
-			<mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
-			<mat-datepicker #fromPicker></mat-datepicker>
-		  </mat-form-field>
-		<mat-form-field>
-			<mat-label>To</mat-label>
-			<input matInput formControlName="to" [matDatepicker]="toPicker">
-			<mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
-			<mat-datepicker #toPicker></mat-datepicker>
-		</mat-form-field>
-	</div>
+<div class="list-filter-wrapper">
+	<form [formGroup]="formGroup">
+		<div fxLayout fxLayoutGap="5%">
+			<mat-form-field>
+				<mat-label>From</mat-label>
+				<input matInput formControlName="from" [matDatepicker]="fromPicker">
+				<mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+				<mat-datepicker #fromPicker></mat-datepicker>
+			  </mat-form-field>
+			<mat-form-field>
+				<mat-label>To</mat-label>
+				<input matInput formControlName="to" [matDatepicker]="toPicker">
+				<mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+				<mat-datepicker #toPicker></mat-datepicker>
+			</mat-form-field>
+		</div>
 
-	<div fxLayout fxLayoutGap="5%">
-		<mat-form-field>
-			<mat-label>Filter</mat-label>
-			<input matInput formControlName="filter" #input>
-		</mat-form-field>
-	</div>
+		<div fxLayout fxLayoutGap="5%">
+			<mat-form-field>
+				<mat-label>Filter</mat-label>
+				<input matInput formControlName="filter" #input>
+			</mat-form-field>
+		</div>
+	</form>
+</div>
 
-
-</form>
 
 <table mat-table [dataSource]="dataSource" matSort>
 	<ng-container matColumnDef="inquirer">
