@@ -31,6 +31,7 @@ export class JwtService {
 		console.log("has to refresh?");
 		console.log(this.accessExpiration);
 		console.log(Date.now());
+		console.log(this.accessExpiration - Date.now())
 		return (this.accessExpiration - Date.now()) < JwtService.REFRESH_TIME;
 	}
 

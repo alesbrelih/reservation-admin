@@ -38,7 +38,6 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
 
 		this.refreshInProgress = true;
 		this.queue$.next(false);
-
 		return this.auth.refresh(this.jwt.refreshToken)
 			.pipe(
 				tap(() => this.queue$.next(true)),
@@ -48,6 +47,6 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
 	}
 
 	private isUrlExcluded(url: string): boolean {
-		return url.toLowerCase().startsWith('/api/auth/') && !url.startsWith('/');
+		return url.toLowerCase().startsWith('/api/auth/') || !url.startsWith('/');
 	}
 }

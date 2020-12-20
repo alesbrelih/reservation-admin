@@ -1,12 +1,17 @@
-<mat-drawer-container autosize>
-	<mat-drawer mode="side" opened>
-		<div class="navigation-wrapper">
-			<a routerLink="/calendar" class="mat-h2">Calendar</a>
-			<a routerLink="/overview" class="mat-h2">Overview</a>
-			<a routerLink="/items" class="mat-h2">Items</a>
-		</div>
-	</mat-drawer>
-	<mat-drawer-content>
-		<router-outlet></router-outlet>
-	</mat-drawer-content>
-</mat-drawer-container>
+<mat-toolbar color="primary">
+	<!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button> -->
+	<span class="pr-40">Reservations Admin</span>
+	<a mat-button *ngFor="let link of links" [routerLink]="[link.route]"> {{link.title}} </a>
+	<span class="spacer"></span>
+	<button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+		<mat-icon>person</mat-icon>
+	</button>
+	<button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+		<mat-icon>logout</mat-icon>
+	</button>
+</mat-toolbar>
+<div class="main-content-wrapper">
+	<router-outlet></router-outlet>
+</div>

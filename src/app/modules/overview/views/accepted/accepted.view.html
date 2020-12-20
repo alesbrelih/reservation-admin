@@ -1,1 +1,58 @@
-<h3>Accepted content</h3>
+<form [formGroup]="formGroup">
+	<div fxLayout fxLayoutGap="5%">
+		<mat-form-field>
+			<mat-label>From</mat-label>
+			<input matInput formControlName="from" [matDatepicker]="fromPicker">
+			<mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+			<mat-datepicker #fromPicker></mat-datepicker>
+		  </mat-form-field>
+		<mat-form-field>
+			<mat-label>To</mat-label>
+			<input matInput formControlName="to" [matDatepicker]="toPicker">
+			<mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+			<mat-datepicker #toPicker></mat-datepicker>
+		</mat-form-field>
+	</div>
+
+	<div fxLayout fxLayoutGap="5%">
+		<mat-form-field>
+			<mat-label>Filter</mat-label>
+			<input matInput formControlName="filter" #input>
+		</mat-form-field>
+	</div>
+
+
+</form>
+
+<table mat-table [dataSource]="dataSource" matSort>
+	<ng-container matColumnDef="inquirer">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header> Inquirer </th>
+		<td mat-cell *matCellDef="let element"> {{element.inquirer}} </td>
+	</ng-container>
+
+	<ng-container matColumnDef="contact">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header> Contact </th>
+		<td mat-cell *matCellDef="let element"> {{element | multiple: 'inquirerEmail' : 'inquirerPhone'}} </td>
+	</ng-container>
+
+	<ng-container matColumnDef="itemTitle">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header> Item </th>
+		<td mat-cell *matCellDef="let element"> {{element.itemTitle}} </td>
+	</ng-container>
+
+	<ng-container matColumnDef="itemPrice">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+		<td mat-cell *matCellDef="let element"> {{element.itemPrice | price | currency: 'EUR' : 'symbol':'1.0-2' : 'sl'  }} </td>
+	</ng-container>
+
+	<ng-container matColumnDef="dateReservation">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header> Reservation Date </th>
+		<td mat-cell *matCellDef="let element"> {{element.dateReservation | date: 'dd.MM.yyyy'}} </td>
+	</ng-container>
+
+
+	<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+	<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [length]="resultLength" [pageSize]="10"
+	[pageSizeOptions]="[10, 25, 50]">></mat-paginator>

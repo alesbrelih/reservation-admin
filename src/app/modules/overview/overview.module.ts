@@ -5,6 +5,18 @@ import { AcceptedView } from './views/accepted/accepted.view';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BaseOverviewView } from './views/base-overview/base-overview.view';
 import { InquiriesView } from './views/inquiries/inquiries.view';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MultiplePipe } from './multiple.pipe';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { PricePipe } from './price.pipe';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 const routes: Routes = [
 	{
@@ -26,7 +38,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [CommonModule, RouterModule.forChild(routes), MatTabsModule],
-	declarations: [AcceptedView, BaseOverviewView, InquiriesView],
+	imports: [CommonModule, FormsModule, ReactiveFormsModule, MatNativeDateModule, MatDatepickerModule, FlexLayoutModule, MatPaginatorModule, MatInputModule, MatFormFieldModule, MatTableModule, MatSortModule, RouterModule.forChild(routes), MatTabsModule],
+	declarations: [AcceptedView, BaseOverviewView, InquiriesView, MultiplePipe, PricePipe],
 })
 export class OverviewModule {}

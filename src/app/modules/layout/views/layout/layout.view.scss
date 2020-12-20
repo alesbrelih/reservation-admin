@@ -1,35 +1,12 @@
 @import 'src/theme/colors';
 
-:host {
-	display: flex;
-	min-height: 100vh;
+// :host {
+// 	display: flex;
+// 	min-height: 100vh;
+// }
+.pr-40 {
+	padding-right: 40px;
 }
-
-mat-drawer-container {
-	flex: 1;
-	mat-drawer {
-		background-color: $color-primary;
-		color: white;
-		padding: 100px;
-		display: flex;
-		align-items: center;
-		a {
-			color: white;
-			text-decoration: none;
-			display: block;
-			&:not(:disabled):hover {
-				cursor: pointer;
-			}
-		}
-	}
-	mat-drawer-content {
-		padding: 100px;
-	}
-}
-
-::ng-deep {
-	.mat-drawer-inner-container {
-		display: flex;
-		align-items: center;
-	}
+.main-content-wrapper {
+	padding: 80px;
 }
